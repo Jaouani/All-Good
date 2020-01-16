@@ -1,0 +1,46 @@
+---
+layout: default
+---
+<section class="site">
+        <div id="site__bg"></div>
+        <div class="left">
+          <label for="" class="site__label">Episode #(Numbers coming soon)</label>
+          <h1 class="site__title site__title--separator">{{ page.title}}</h1>
+          {{ endfor}}
+        </div>
+        <div class="right">{{ for img in page.img}}
+          <img src="{{ page.img}}" alt="" class="episode__image">{{ endfor}}
+          <div class="audio-player site__playbar">
+            <div class="loading">
+              <div class="spinner"></div>
+            </div>
+            <button class="play-pause-btn play"></button>
+            <div class="controls">
+              <span class="current-time">0:00</span>
+              <div class="slider" data-direction="horizontal">
+                <div class="progress">
+                  <div class="pin" id="progress-pin" data-method="rewind"></div>
+                </div>
+              </div>
+              <span class="total-time">0:00</span>
+            </div>
+
+            <audio preload="true">
+              <source src="{{ page.audio }}" type="audio/mpeg">
+            </audio>
+          </div>
+          <h4 class="site__secondary_title">{{page.header}}</h4>
+          <p class="site__description">{{ content | strip_html }}</p>
+          <div class="site__navigation">
+            <!-- toggle on the previous as needed -->
+            <a href="#" class="site__navigation_items site__navigation_items--left hidden">
+              <label for="">Previous Episode</label>
+              <h4>Dylan Perry</h4>
+            </a>
+            <a href="#" class="site__navigation_items site__navigation_items--right">
+              <label for="">Next Episode</label>
+              <h4>Dylan Perry</h4>
+            </a>
+          </div>
+        </div>
+      </section>

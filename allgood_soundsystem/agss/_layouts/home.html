@@ -1,0 +1,28 @@
+---
+layout: default
+---
+<section class="site">
+          <h1 class="site__title site__title--separator">Dropcast</h1>
+          <p class="site__description">{{ content | strip_html }}</p>
+        </section>
+        <section class="episodes">
+          {% for episode in site.posts %}
+          <article class="episode">
+            <h2 class="episode__number">0{{ forloop.index}}</h2>
+            <div class="episode__media">
+              <a href="{{ episode.url }}" class="episode__image" style="background-image: url({{ episode.img }});"></a>
+            </div>
+            <div class="episode__detail">
+              <a href="{{ episode.url }}" class="episode__title"><h4>{{ episode.title }}</h4></a>
+              <p class="episode__description">{{ episode.description }}</p>
+            </div>
+          </article>
+          {% endfor %}
+        </section>
+      </div>
+      <footer>
+        <p class="footer__content">All Good is meant to lift spirits <a href="https://brandnewguys.co">Brand New Guys</a> exclusively for Brand New Guys</p>
+        <div class="logo footer__logo">
+          <a href="https://brandnewguys.co" alt="logo"/></a>
+        </div>
+      </footer>

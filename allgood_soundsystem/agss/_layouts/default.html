@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+    <head>
+      <meta charset="utf-8">
+      <meta name="description" content="Dropcast is a responsive HTML/CSS/Javascript template for podcasts">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Dropcast - Podcast Template from Codrops</title>
+      <link rel="stylesheet" href="/assets/css/dropcast.css">
+      <link rel="author" href="Amie Chen for Codrops">
+      <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Rufina:400,700|Source+Sans+Pro:200,300,400,600,700" rel="stylesheet">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+      <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+      <script>
+        if (window.netlifyIdentity) {
+          window.netlifyIdentity.on("init", user => {
+            if (!user) {
+              window.netlifyIdentity.on("login", () => {
+                document.location.href = "/admin/";
+              });
+            }
+          });
+        }
+      </script>
+    </head>
+    <body class="{% if page.layout == 'episode' %} page--detail {% endif %}">
+      
+      <div id="site__bg"></div>
+      <div class="main">
+        <nav>
+          <div class="logo nav__logo">
+            <a href="/index.html"><img src="/assets/images/logo.svg" alt="logo" style="position:absolute; z-index: -1;"/><img id="nav" src="/assets/images/bitmap.png" alt="logo" style="height: 16px;	width: 60px; margin: 30px 0px 40px 7.5px"/></a>
+          </div>
+          <ul class="nav__list">
+            <li class="nav__item"><a href="#">{{ page.layout }}</a></li>
+          </ul>
+          <ul class="nav__social">
+            <li><a href="#" class="nav_social__item"><i class="fab fa-google-play"></i></a></li>
+            <li><a href="#" class="nav_social__item"><i class="fab fa-itunes-note"></i></a></li>
+            <li><a href="#" class="nav_social__item"><i class="fas fa-rss-square"></i></a></li>
+          </ul>
+        </nav>
+        <!-- drop in sub layout here? -->
+        {{ content }}
+      <script src="/assets/js/dropcast.js"></script>
+      <!-- conditionally -->
+      <script src="/assets/js/player.js"></script>
+    </body>
+</html>
